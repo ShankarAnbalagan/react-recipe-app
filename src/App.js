@@ -10,7 +10,7 @@ class App extends React.Component{
   
   constructor(props){
     super(props);
-    this.state={json:[]};
+    this.state={json:[], validSearch:true};
     this.search=this.search.bind(this);
     this.key=process.env.REACT_APP_API_KEY;
   }
@@ -34,7 +34,10 @@ class App extends React.Component{
           var res=await fetch("https://www.food2fork.com/api/search?key="+this.key+"&q="+searchWord);
           var json = await res.json();
           console.log("json=======>",json);
-          this.setState({json: json.recipes });
+          if(json.count===0)
+            this.setState({json: json.recipes, validSearch:false });
+          else
+            this.setState({json: json.recipes, validSearch:true });
         }catch(err){
           alert("Oops something went wrong!");
       }
@@ -48,7 +51,7 @@ class App extends React.Component{
           <h5>Tasty recipes for everyone</h5>
         </div>
         <SearchBar onSearch={this.search}/>
-        <Content recipeToRender={this.state.json}/>
+        <Content recipeToRender={this.state.json} searchStatus={this.state.validSearch}/>
         <Foot/>
       </div>
     ); 

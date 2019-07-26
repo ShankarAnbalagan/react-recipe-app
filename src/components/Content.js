@@ -1,12 +1,11 @@
 import React from 'react';
 import Recipe from './Recipe';
-import ProgressBar from 'react-bootstrap/ProgressBar';
 
 function Content(props){
     var elements=[];
     console.log("again");
     try{
-        if((props.recipeToRender).length!==0){
+        if(props.searchStatus===true){
             console.log(props.recipeToRender.length);
             for(var i=0;i<props.recipeToRender.length;i++){
                 elements.push(
@@ -20,8 +19,8 @@ function Content(props){
                 console.log(elements[i]);
             }
         }
-        if(elements.length===0){
-            return(<div><ProgressBar animated now={100}/></div>);
+        else{
+            return(<div className="page-status">Oopsie! Recipe does not exist</div>);
         }
         return (
             <div className="container">
