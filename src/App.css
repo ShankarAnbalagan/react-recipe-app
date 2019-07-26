@@ -5,6 +5,10 @@
     width: 100%;
 }
 
+#footer{
+    background-color: black;
+}
+
 #page-title{
     text-align: center;
     text-decoration: none;

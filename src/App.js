@@ -3,6 +3,7 @@ import SearchBar from './components/SearchBar';
 import Content from './components/Content';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+import Foot from './components/Foot';
 
 class App extends React.Component{
 
@@ -48,6 +49,7 @@ class App extends React.Component{
         </div>
         <SearchBar onSearch={this.search}/>
         <Content recipeToRender={this.state.json}/>
+        <Foot/>
       </div>
     ); 
   }
