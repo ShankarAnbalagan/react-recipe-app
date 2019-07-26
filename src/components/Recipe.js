@@ -6,7 +6,7 @@ function Recipe(props){
     return(
         <div key={props.recipeId} className="recipe-card col-sm-12 col-md-6 col-lg-4">           
             <Card bg="dark" text="white" style={{ width: '100%'}}>
-                <Card.Img variant="top" src={props.imgsrc}/>
+                <Card.Img variant="top" src={props.imgsrc} className="card-img-top"/>
                 <Card.Body>
                     <Card.Title>{props.title}</Card.Title>
                     <Card.Text>{props.publisher}</Card.Text>
